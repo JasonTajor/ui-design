@@ -1,6 +1,6 @@
 {
   "name": "design-system-marketplace",
-  "owner": { "name": "YOUR_NAME" },
+  "owner": { "name": "JasonTajor" },
   "plugins": [
     {
       "name": "design-system",
