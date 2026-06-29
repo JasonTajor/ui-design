@@ -1,0 +1,8 @@
+{
+  "name": "design-system",
+  "version": "1.0.0",
+  "description": "A modern, token-driven design system (Inter, 8pt spacing, Zinc neutrals, primary/secondary accents, color-wheel status, HugeIcons, light+dark, solid color) plus a team of agents that design, build, and QA dashboards and UIs to it. Use whenever building or updating any front-end UI, dashboard, page, or component.",
+  "author": { "name": "Design System" },
+  "license": "MIT",
+  "keywords": ["design-system", "ui", "ux", "dashboard", "frontend", "tokens", "responsive"]
+}

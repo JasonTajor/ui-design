@@ -1,0 +1,11 @@
+{
+  "name": "design-system-marketplace",
+  "owner": { "name": "YOUR_NAME" },
+  "plugins": [
+    {
+      "name": "design-system",
+      "source": "./design-system",
+      "description": "Design system skill + UI/UX, front-end, QA, orchestrator, and guardian agents, with /dashboard and /review commands."
+    }
+  ]
+}
