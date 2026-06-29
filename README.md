@@ -55,14 +55,40 @@ Once installed, use it anywhere:
 - `/review` — audit the current UI against the system
 - or just describe the work; the agents trigger themselves.
 
+## Tokens in code — `tokens.css`
+
+[`tokens.css`](./tokens.css) is the **single source of truth, in code**: all design
+tokens as CSS custom properties for light and dark (`:root` + `[data-theme="dark"]`).
+This is the one file you edit to change the system.
+
+Use it in any web project — no build, no npm:
+
+```html
+<link rel="stylesheet" href="tokens.css">
+```
+
+```css
+/* then style with semantic tokens only — never raw hex */
+.btn { background: var(--color-primary); color: var(--color-on-accent); }
+.card { background: var(--color-surface); border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg); padding: var(--space-5); }
+```
+
+Toggle themes by setting `data-theme="dark"` on `<html>`.
+
+**How it stays in sync:** `tokens.css` is the code; the markdown under
+`design-system/skills/design-system/references/standards/` is the rationale (the
+"why" behind each value). The Claude Code agents read that markdown. When you change
+a value, edit `tokens.css` and update the matching standards doc, then commit both.
+
 ## Live showcase
 
-[`showcase.html`](./showcase.html) is a single self-contained file that renders the
-whole system live — every token, primitive, component, and page pattern, in **light
-and dark**, with controls to retune the primary/secondary colors and corner radius
-on the fly.
+[`showcase.html`](./showcase.html) renders the whole system live — every token,
+primitive, component, and page pattern, in **light and dark**, with controls to
+retune the primary/secondary colors and corner radius on the fly. It `<link>`s
+`tokens.css`, so it reflects whatever is in that file.
 
-**Preview it** — just open the file in any browser (no server, no build):
+**Preview it** — open it in any browser (no server, no build):
 
 ```
 file:///C:/design/design-system-repo/showcase.html
@@ -70,11 +96,8 @@ file:///C:/design/design-system-repo/showcase.html
 
 or double-click `showcase.html` in the repo.
 
-**Update it** — the page is driven by the same tokens defined in
-`design-system/skills/design-system/`. When you change a standard there (a color, a
-radius, spacing), mirror the change in the `:root` / `[data-theme="dark"]` token
-block at the top of `showcase.html`, then refresh the browser. Commit both so the
-showcase always matches the system.
+**Update it** — edit [`tokens.css`](./tokens.css) and refresh the browser. The
+showcase (and every project that links `tokens.css`) updates from that one edit.
 
 ## Update everything in one place
 

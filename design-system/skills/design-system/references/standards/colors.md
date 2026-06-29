@@ -1,5 +1,9 @@
 # Color
 
+> The values below are the canonical token values in code at `tokens.css` (repo
+> root). This doc is the rationale; `tokens.css` is what projects consume. Keep both
+> in sync when a value changes.
+
 Solid color only — no gradients. Neutrals use a Figma/Zinc ramp; the system has a
 **Primary** and **Secondary** accent, and the status palette is positioned around
 the color wheel so the states stay distinct yet harmonious with the accents.

@@ -18,6 +18,12 @@ This skill keeps every UI consistent, token-driven, and free of duplicate
 components. The body below is the table of contents. Read only the reference
 files a given task needs — they stay on disk (zero context cost) until you read them.
 
+**Tokens in code:** the canonical token values live as CSS custom properties in
+`tokens.css` at the repo root. The `references/standards/` docs below explain the
+*why*; `tokens.css` is the *what* a project actually consumes
+(`<link rel="stylesheet" href="tokens.css">`, then `var(--…)`). When a token value
+changes, update both the standards doc and `tokens.css`.
+
 ## The one rule that overrides everything
 
 If you discover the design system is broken or missing a needed token/primitive,

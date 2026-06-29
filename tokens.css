@@ -1,0 +1,149 @@
+/* =============================================================================
+   Design System — Tokens (single source of truth, in code)
+   -----------------------------------------------------------------------------
+   Edit THIS file to change the system. Everything that consumes the tokens
+   (showcase.html, and any app that links this file) updates from here.
+
+   Usage in any web project:
+       <link rel="stylesheet" href="tokens.css">
+   then style with the semantic variables only, e.g. color: var(--color-text);
+   background: var(--color-surface); — never raw hex.
+
+   The human-readable spec for these values lives in
+   design-system/skills/design-system/references/standards/. Keep the two in
+   sync: this file is the code, the markdown is the rationale.
+
+   Rules: solid color only (no gradients); components use SEMANTIC tokens, never
+   the gray-* / raw values directly; light values live in :root, dark overrides
+   in [data-theme="dark"]; components never branch on theme.
+   ============================================================================= */
+
+:root {
+  /* ---- Spacing (8pt base, 4px step) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ---- Radius (scale off one base) ---- */
+  --radius-base: 12px;
+  --radius-xs: calc(var(--radius-base) * .5);
+  --radius-sm: calc(var(--radius-base) * .67);
+  --radius-md: var(--radius-base);
+  --radius-lg: calc(var(--radius-base) * 1.33);
+  --radius-xl: calc(var(--radius-base) * 1.83);
+  --radius-full: 9999px;
+
+  /* ---- Motion ---- */
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --ease: cubic-bezier(.2, 0, 0, 1);
+
+  /* ---- Type families ---- */
+  --font-sans: "Google Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Google Sans Code", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --scale: 1;
+
+  /* ---- Gray ramp (Zinc) — primitives, not used directly by components ---- */
+  --gray-0: #fff;
+  --gray-50: #f9fafb;
+  --gray-75: #f4f4f5;
+  --gray-100: #efeff1;
+  --gray-200: #e4e4e7;
+  --gray-300: #d4d4d8;
+  --gray-400: #a1a1aa;
+  --gray-500: #71717a;
+  --gray-600: #52525b;
+  --gray-700: #3f3f46;
+  --gray-800: #27272a;
+  --gray-900: #18181b;
+  --gray-950: #09090b;
+
+  /* ---- Semantic neutrals (light) ---- */
+  --color-bg: var(--gray-50);
+  --color-bg-subtle: var(--gray-75);
+  --color-surface: var(--gray-0);
+  --color-surface-2: var(--gray-75);
+  --color-border: var(--gray-200);
+  --color-border-strong: var(--gray-300);
+  --color-text: var(--gray-900);
+  --color-text-muted: var(--gray-600);
+  --color-text-subtle: var(--gray-500);
+
+  /* ---- Accents (light) ---- */
+  --color-primary: #4c6ef5;
+  --color-primary-hover: #3b5bdb;
+  --color-primary-tint: rgba(76, 110, 245, .10);
+  --color-secondary: #7c3aed;
+  --color-secondary-hover: #6d28d9;
+  --color-secondary-tint: rgba(124, 58, 237, .10);
+  --color-brand: var(--color-primary);
+  --color-on-accent: #fff;
+  --color-focus: var(--color-primary);
+
+  /* ---- Shadows (light) ---- */
+  --shadow-sm: 0 1px 2px rgba(9, 9, 11, .06);
+  --shadow-md: 0 1px 3px rgba(9, 9, 11, .06), 0 6px 16px rgba(9, 9, 11, .07);
+  --shadow-lg: 0 12px 34px rgba(9, 9, 11, .12);
+
+  /* ---- Status (wheel-positioned, light). Tint = color-mix 13% over bg ---- */
+  --st-pending: #d97706;
+  --st-progress: #2563eb;
+  --st-submitted: #0891b2;
+  --st-review: #ca8a04;
+  --st-success: #16a34a;
+  --st-failed: #dc2626;
+  --st-expired: #52525b;
+
+  /* ---- Tags (light) ---- */
+  --tag-blue: #2563eb;
+  --tag-green: #16a34a;
+  --tag-teal: #0891b2;
+  --tag-violet: #7c3aed;
+  --tag-amber: #d97706;
+}
+
+html[data-theme="dark"] {
+  /* Dark = elevated surfaces (bg darkest → each layer lighter), not inversion */
+  --color-bg: var(--gray-950);
+  --color-bg-subtle: #111113;
+  --color-surface: var(--gray-900);
+  --color-surface-2: var(--gray-800);
+  --color-border: #27272a;
+  --color-border-strong: var(--gray-700);
+  --color-text: #fafafa;
+  --color-text-muted: var(--gray-400);
+  --color-text-subtle: var(--gray-500);
+
+  /* Accents brighten to stay vivid on near-black */
+  --color-primary: #5c7cfa;
+  --color-primary-hover: #748ffc;
+  --color-primary-tint: rgba(92, 124, 250, .16);
+  --color-secondary: #a78bfa;
+  --color-secondary-hover: #8b5cf6;
+  --color-secondary-tint: rgba(167, 139, 250, .16);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5);
+  --shadow-md: 0 1px 3px rgba(0, 0, 0, .5), 0 8px 22px rgba(0, 0, 0, .6);
+  --shadow-lg: 0 14px 40px rgba(0, 0, 0, .7);
+
+  --st-pending: #fbbf24;
+  --st-progress: #60a5fa;
+  --st-submitted: #22d3ee;
+  --st-review: #fcd34d;
+  --st-success: #4ade80;
+  --st-failed: #f87171;
+  --st-expired: #a1a1aa;
+
+  --tag-blue: #60a5fa;
+  --tag-green: #4ade80;
+  --tag-teal: #22d3ee;
+  --tag-violet: #a78bfa;
+  --tag-amber: #fbbf24;
+}
