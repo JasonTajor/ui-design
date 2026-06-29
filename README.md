@@ -55,6 +55,27 @@ Once installed, use it anywhere:
 - `/review` — audit the current UI against the system
 - or just describe the work; the agents trigger themselves.
 
+## Live showcase
+
+[`showcase.html`](./showcase.html) is a single self-contained file that renders the
+whole system live — every token, primitive, component, and page pattern, in **light
+and dark**, with controls to retune the primary/secondary colors and corner radius
+on the fly.
+
+**Preview it** — just open the file in any browser (no server, no build):
+
+```
+file:///C:/design/design-system-repo/showcase.html
+```
+
+or double-click `showcase.html` in the repo.
+
+**Update it** — the page is driven by the same tokens defined in
+`design-system/skills/design-system/`. When you change a standard there (a color, a
+radius, spacing), mirror the change in the `:root` / `[data-theme="dark"]` token
+block at the top of `showcase.html`, then refresh the browser. Commit both so the
+showcase always matches the system.
+
 ## Update everything in one place
 
 The agents read the `design-system` skill — they hardcode nothing. Edit a token or
